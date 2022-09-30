@@ -1,23 +1,18 @@
-el = [1,5,-2]
-lista = []
+def separar(lista):
 
-def agregar_una_vez(lista,el):
-    if el in lista:
-        raise ValueError("ERROR: Imposible añadir elementos duplicados => [{}}]".format(el))
-    lista.append(el)
+    pares = []
+    impares = []
+    for i in lista:
+        if i%2 == 0:
+            pares.append(i)
+        else: 
+            impares.append(i)
+       
+    pares.sort()
+    impares.sort()
 
-try:
-    agregar_una_vez(el,10)
-    agregar_una_vez(el, -2)
-except ValueError:
-    print("ERROR")
-else:
-    print("Elemento guardado")
-finally:
-    print("La lista final es {}".format(el))
-
-agregar_una_vez(lista,el)
-
-
-
-
+    return pares,impares
+lista = [5,7,1,3,2,4,9,6,8]
+pares,impares = separar(lista)
+print ("pares: ", pares)
+print ("impares: ", impares)
